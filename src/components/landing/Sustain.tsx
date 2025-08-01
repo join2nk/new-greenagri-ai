@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default function page() {
+export default function Sustainability() {
   return (
     <section id="sustainability" className="py-16 bg-green-50">
     <div className="container mx-auto px-4 sm:px-6 lg:px-8">

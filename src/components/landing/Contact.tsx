@@ -153,26 +153,7 @@ export default function Contact() {
             </div>
           </div>
 
-          <div className="bg-white/5 backdrop-blur-lg p-8 rounded-3xl border border-white/10">
-            <h4 className="font-bold text-xl mb-6 flex items-center">
-              <span className="text-2xl mr-3">🕒</span>
-              Business Hours
-            </h4>
-            <div className="space-y-3 text-gray-300">
-              <div className="flex justify-between items-center p-3 bg-white/5 rounded-xl">
-                <span>Monday - Friday</span>
-                <span className="text-green-400 font-semibold">9:00 AM - 6:00 PM</span>
-              </div>
-              <div className="flex justify-between items-center p-3 bg-white/5 rounded-xl">
-                <span>Saturday</span>
-                <span className="text-yellow-400 font-semibold">9:00 AM - 1:00 PM</span>
-              </div>
-              <div className="flex justify-between items-center p-3 bg-white/5 rounded-xl">
-                <span>Sunday</span>
-                <span className="text-red-400 font-semibold">Closed</span>
-              </div>
-            </div>
-          </div>
+         
 
           <div className="bg-gradient-to-br from-green-600 to-green-700 p-8 rounded-3xl shadow-2xl">
             <h4 className="font-bold text-xl mb-4 flex items-center">

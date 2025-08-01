@@ -2,7 +2,7 @@ import React from 'react'
 
 export default function page() {
   return (
-    <section id="services" className="py-24 bg-gradient-to-b from-gray-50 to-white relative">
+    <section id="services" className="py-50 bg-gradient-to-b from-gray-50 to-white relative">
     <div className="container mx-auto px-4 sm:px-6 lg:px-8">
       <div className="text-center mb-16">
         <span className="inline-block px-4 py-2 bg-blue-100 text-blue-700 rounded-full text-sm font-semibold mb-4">

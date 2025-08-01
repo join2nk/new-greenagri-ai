@@ -21,12 +21,7 @@ const companyStats = [
     description: "Industry expertise",
     icon: "📈"
   },
-  {
-    number: "50+",
-    label: "Countries",
-    description: "Global export reach",
-    icon: "🌐"
-  },
+
   {
     number: "10,000+",
     label: "MT Annual",
@@ -36,16 +31,7 @@ const companyStats = [
 ];
 
 const certifications = [
-  {
-    name: "ISO 9001:2015",
-    description: "Quality Management System",
-    logo: "🏆"
-  },
-  {
-    name: "HACCP",
-    description: "Food Safety Standards",
-    logo: "🛡️"
-  },
+
   {
     name: "FSSAI",
     description: "Food Safety License",
@@ -58,49 +44,8 @@ const certifications = [
   }
 ];
 
-const capabilities = [
-  {
-    title: "Advanced Processing Technology",
-    description: "State-of-the-art rice processing equipment with automated sorting, grading, and packaging systems ensuring consistent quality and efficiency.",
-    image: "https://images.unsplash.com/photo-1586864387967-d02ef85d93e8?w=600&h=400&fit=crop",
-    features: ["Automated Sorting", "Color Grading", "Moisture Control", "Quality Testing"]
-  },
-  {
-    title: "Quality Control Laboratory",
-    description: "In-house laboratory equipped with modern testing equipment for comprehensive quality analysis including moisture, broken percentage, and purity testing.",
-    image: "https://images.unsplash.com/photo-1582719471384-894fbb16e074?w=600&h=400&fit=crop",
-    features: ["Moisture Analysis", "Broken % Testing", "Purity Analysis", "Pesticide Testing"]
-  },
-  {
-    title: "Export Documentation",
-    description: "Complete export documentation and compliance support including certificates of origin, phytosanitary certificates, and quality certificates.",
-    image: "https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=600&h=400&fit=crop",
-    features: ["COO Certificates", "Phytosanitary", "Quality Certificates", "Custom Clearance"]
-  }
-];
 
-const exportMarkets = [
-  {
-    region: "Middle East",
-    countries: ["UAE", "Saudi Arabia", "Kuwait", "Qatar"],
-    percentage: "35%"
-  },
-  {
-    region: "Africa",
-    countries: ["Nigeria", "Ghana", "Kenya", "South Africa"],
-    percentage: "30%"
-  },
-  {
-    region: "Asia Pacific",
-    countries: ["Malaysia", "Singapore", "Philippines", "Vietnam"],
-    percentage: "25%"
-  },
-  {
-    region: "Others",
-    countries: ["Europe", "Americas", "Oceania"],
-    percentage: "10%"
-  }
-];
+
 
 export default function AboutUs() {
   return (
@@ -190,83 +135,8 @@ export default function AboutUs() {
         </div>
       </div>
 
-      {/* Processing Capabilities */}
-      <div className="mb-20">
-        <div className="text-center mb-12">
-          <Subtitle className="mb-4">Processing Capabilities</Subtitle>
-          <SectionTitle className="mb-6">Advanced Manufacturing Infrastructure</SectionTitle>
-          <BodyText className="max-w-3xl mx-auto text-lg text-gray-600">
-            Our state-of-the-art facility combines modern technology with rigorous quality control 
-            to deliver consistent, high-quality rice products for global markets.
-          </BodyText>
-        </div>
-
-        <div className="space-y-12">
-          {capabilities.map((capability, index) => (
-            <div key={index} className={cn(
-              "grid lg:grid-cols-2 gap-12 items-center",
-              index % 2 === 1 && "lg:grid-flow-col-dense"
-            )}>
-              <div className={cn(index % 2 === 1 && "lg:col-start-2")}>
-                <CardTitle className="mb-4 text-2xl">{capability.title}</CardTitle>
-                <BodyText className="mb-6 text-lg text-gray-600">
-                  {capability.description}
-                </BodyText>
-                <div className="grid grid-cols-2 gap-3">
-                  {capability.features.map((feature, featureIndex) => (
-                    <div key={featureIndex} className="flex items-center text-sm">
-                      <div className="w-2 h-2 bg-green-500 rounded-full mr-3"></div>
-                      <span className="text-gray-700">{feature}</span>
-                    </div>
-                  ))}
-                </div>
-              </div>
-              <div className={cn(index % 2 === 1 && "lg:col-start-1")}>
-                <div className="bg-gray-100 rounded-2xl overflow-hidden shadow-lg">
-                  <StyledImage
-                    src={capability.image}
-                    alt={capability.title}
-                    width={600}
-                    height={400}
-                    className="w-full h-80 object-cover"
-                  />
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
-
-      {/* Export Markets */}
-      <div className="mb-20">
-        <div className="text-center mb-12">
-          <Subtitle className="mb-4">Global Presence</Subtitle>
-          <SectionTitle className="mb-6">Export Markets</SectionTitle>
-          <BodyText className="max-w-3xl mx-auto text-lg text-gray-600">
-            We export premium Indian non-basmati rice to over 50 countries across different continents, 
-            maintaining long-term partnerships with importers and distributors worldwide.
-          </BodyText>
-        </div>
-
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {exportMarkets.map((market, index) => (
-            <div key={index} className="bg-white border border-gray-200 rounded-xl p-6 hover:shadow-lg transition-shadow">
-              <div className="text-center mb-4">
-                <div className="text-3xl font-bold text-green-600 mb-2">{market.percentage}</div>
-                <CardTitle className="text-xl mb-4">{market.region}</CardTitle>
-              </div>
-              <div className="space-y-2">
-                {market.countries.map((country, countryIndex) => (
-                  <div key={countryIndex} className="flex items-center text-sm">
-                    <div className="w-1.5 h-1.5 bg-gray-400 rounded-full mr-3"></div>
-                    <span className="text-gray-700">{country}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
+     
+    
 
       {/* Company Locations */}
       <div className="bg-gray-900 rounded-2xl p-12 text-white">
