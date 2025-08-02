@@ -1,17 +1,18 @@
 "use client";
 
 import React, { useState, useEffect } from 'react';
+import QuoteDialog from '@/components/landing/Quote';
 import Link from 'next/link';
 import { cn } from '@/lib/utils';
 import { Logo } from './Logo';
 import { Mail, MapPin } from 'lucide-react';
 const navigationItems = [
   { name: 'Home', href: '/' },
-  { name: 'About', href: '#about' },
-  { name: 'Products', href: '#products' },
+  // { name: 'About', href: '#about' },
+  // { name: 'Products', href: '#products' },
   { name: 'Services', href: '/services' },
-  { name: 'Quality', href: '#quality' },
-  { name: 'Contact', href: '#contact' }
+  { name: 'Quality', href: '/quality' },
+  { name: 'Contact', href: '/contact' }
 ];
 
 export default function Navbar() {
@@ -46,17 +47,17 @@ export default function Navbar() {
             <div></div>
             <div className="flex items-center space-x-6">
               <div className="hidden md:flex items-center space-x-2">
-              <Mail className="w-4 h-4 text-amber-400 " />
-                <span >export@greenagricorp.com</span>
+                <Mail className="w-4 h-4 text-amber-400 " />
+                <span >greenagricorp@gmail.com</span>
               </div>
 
               <div className="hidden md:flex items-center space-x-2">
-              <MapPin className="w-4 h-4 text-amber-400 " />
+                <MapPin className="w-4 h-4 text-amber-400 " />
                 <span>Delhi (HO) • Raipur (Manufacturing)</span>
               </div>
             </div>
 
-           
+
           </div>
         </div>
       </div>
@@ -80,20 +81,9 @@ export default function Navbar() {
 
           {/* Contact Info & CTA */}
           <div className="hidden lg:flex items-center space-x-6">
-            {/* Contact Info
-            <div className="text-right text-sm">
-              <div className="font-semibold text-gray-900">Export Inquiry</div>
-              <div className="text-gray-600">export@greenagricorp.com</div>
-            </div> */}
-
-            {/* CTA Button */}
-            <Link
-              href="#contact"
-              className="bg-green-600 hover:bg-green-700 text-amber-300 px-6 py-3 rounded-lg font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg"
-            >
-              Get Quote
-            </Link>
+            <QuoteDialog />
           </div>
+
 
           {/* Mobile Menu Button */}
           <button

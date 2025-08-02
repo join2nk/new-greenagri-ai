@@ -24,9 +24,11 @@ export default function Footer() {
           {/* Company Info */}
           <div className="col-span-1 md:col-span-2">
             <div className="mb-6">
-              <h3 className="text-3xl font-bold bg-gradient-to-r from-amber-300 via-yellow-400 to-amber-500 bg-clip-text text-transparent mb-4">
-                Green Agri Corp Pvt Ltd
-              </h3>
+             <div className=' mb-4'>
+             <img src="/images/logo.png" alt="" />
+             </div>
+               
+            
               <p className="text-emerald-50 text-lg leading-relaxed mb-6 backdrop-blur-sm bg-black/10 p-4 rounded-lg">
                 Exporting premium Indian rice to the world with state-of-the-art facilities ensuring highest quality grains. 
                 Trusted by leading brands for our unwavering commitment to excellence and sustainable agriculture.
@@ -48,7 +50,7 @@ export default function Footer() {
               </div>
               <div className="bg-gradient-to-br from-emerald-800/70 to-green-700/50 backdrop-blur-md p-4 rounded-2xl border border-emerald-600/40 hover:border-amber-400/60 transition-all duration-300 shadow-lg">
                 <h4 className="text-amber-300 font-semibold mb-2">Factory</h4>
-                <p className="text-emerald-100">Raipur (8 acres)</p>
+                <p className="text-emerald-100">Raipur ,Chhattisgarh</p>
               </div>
             </div>
           </div>

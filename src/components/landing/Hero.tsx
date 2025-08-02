@@ -14,7 +14,7 @@ const heroSlides = [
     title: "Premium Indian Non-Basmati Rice Exporter",
     subtitle: "Quality Assured • Global Reach • Reliable Supply",
     description: "Partner with Green Agri Corp for consistent, high-quality rice exports. ISO certified facility with 10,000+ MT annual capacity serving 50+ countries worldwide.",
-    image: "https://images.unsplash.com/photo-1586864387967-d02ef85d93e8?w=1920&h=1080&fit=crop",
+    image: "https://images.unsplash.com/photo-1599058917213-0c7a5d8b4b8e?w=1920&h=1080&fit=crop", // Updated to a basmati rice field image
     bgGradient: "from-slate-900/85 via-gray-900/80 to-slate-800/85",
     stats: [
       { label: "Countries Served", value: "50+" },

@@ -14,15 +14,15 @@ const heroSlides = [
     title: "Premium Quality Rice Milling",
     subtitle: "Delivering Excellence in Every Grain",
     description: "Experience state-of-the-art rice milling processes that ensure the highest quality and purity. Trusted by farmers, traders, and exporters worldwide.",
-    image: "https://images.unsplash.com/photo-1625246333195-78d9c38ad449?w=1920&h=1080&fit=crop",
-    bgGradient: "from-yellow-900/80 via-amber-800/70 to-orange-900/80",
+    image: "/images/hero-1.jpeg", 
+    bgGradient: "from-green-900/80 via-teal-800/70 to-emerald-900/80",
   },
   {
     id: 2,
     title: "Trusted Partner for Rice Traders",
     subtitle: "Building Long-Lasting Business Relationships",
     description: "We provide reliable and consistent rice supply chains tailored to meet the needs of traders and distributors. Your success is our priority.",
-    image: "https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=1920&h=1080&fit=crop",
+    image: "images/hero-2.jpeg",
     bgGradient: "from-green-900/80 via-teal-800/70 to-emerald-900/80",
   },
   {
@@ -30,8 +30,8 @@ const heroSlides = [
     title: "Global Rice Export Solutions",
     subtitle: "Connecting You to International Markets",
     description: "Expand your reach with our seamless rice export services. We ensure quality, compliance, and timely delivery to buyers across the globe.",
-    image: "https://images.unsplash.com/photo-1625246333195-78d9c38ad449?w=1920&h=1080&fit=crop",
-    bgGradient: "from-blue-900/80 via-indigo-800/70 to-purple-900/80",
+    image: "images/hero-3.jpeg",
+    bgGradient: "from-green-900/80 via-teal-800/70 to-emerald-900/80",
   }
 ];
 
@@ -93,7 +93,7 @@ export default function Hero() {
                       {/* CTA Buttons */}
                       <div className="flex flex-col sm:flex-row gap-4 pt-6">
                         <Link
-                          href="#products"
+                          href="/contact"
                           className="inline-flex items-center justify-center px-8 py-4 bg-gradient-to-r from-green-500 to-emerald-600 text-white font-semibold rounded-full hover:from-green-600 hover:to-emerald-700 transition-all duration-300 transform hover:scale-105 shadow-2xl"
                         >
                           Get Started
