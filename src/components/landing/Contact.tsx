@@ -60,7 +60,7 @@ export default function Contact() {
            
            <div className="space-y-4">
              {/* <QuoteDialog /> */}
-             <Link href="/quote" className="w-full lg:w-auto min-w-[200px]">
+             <Link href="/contact" className="w-full lg:w-auto min-w-[200px]">
                <Button variant="secondary" size="lg" className="w-full lg:w-auto">
                Request Quote
                </Button>
