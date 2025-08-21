@@ -5,7 +5,7 @@ services:
       dockerfile: Dockerfile
     container_name: green-company-landing-page
     ports:
-      - "3000:3000"
+      - "3026:3000"
     restart: unless-stopped
     volumes:
-      - ./dev.db:/app/dev.db
+      - ./prisma/dev.db:/app/prisma/dev.db
