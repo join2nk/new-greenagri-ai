@@ -1,0 +1,11 @@
+services:
+  nextjs-landing:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: green-company-landing-page
+    ports:
+      - "3000:3000"
+    restart: unless-stopped
+    volumes:
+      - ./dev.db:/app/dev.db
