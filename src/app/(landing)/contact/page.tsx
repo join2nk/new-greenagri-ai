@@ -3,7 +3,7 @@
 import React from 'react';
 import { Section } from '@/components/ui/Section';
 import { SectionTitle, Subtitle, BodyText, CardTitle } from '@/components/ui/Typography';
-import { Badge } from '@/components/ui/Badge';
+import { Badge } from '@/components/ui/badge';
 
 const contactMethods = [
   {

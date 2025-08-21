@@ -1,5 +1,5 @@
 import React from 'react'
-import { Button } from '@/components/ui/Button';
+import { Button } from '@/components/ui/button';
 // import QuoteDialog from '@/components/landing/Quote';
 
 import { CardTitle, BodyText } from '../ui/Typography';

@@ -4,7 +4,7 @@ import React from 'react';
 import { Section } from '@/components/ui/Section';
 import { SectionTitle, Subtitle, BodyText, CardTitle } from '@/components/ui/Typography';
 import { StyledImage } from '@/components/ui/Image';
-import { Badge } from '@/components/ui/Badge';
+import { Badge } from '@/components/ui/badge';
 import { cn } from '@/lib/utils';
 
 const qualityStandards = [
