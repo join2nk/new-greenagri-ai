@@ -19,20 +19,20 @@ export function Logo({
         >
             <motion.div
             className={cn(
-                "relative w-62 rounded-none flex items-center justify-center px-6 transition-all duration-300",
+                "relative w-62 rounded-b flex items-center justify-center px-6 transition-all duration-300",
                 isScrolled ? "bg-white h-14 -mt-2 -mb-20 z-0" : "bg-white h-32 shadow-lg pt-40 z-10",
                 className
             )}
-            style={{ transform: isScrolled ? "none" : "skewY(-5deg)" }} // Remove skew if isScrolled
+            style={{ transform: isScrolled ? "none" : "skewY(-6deg)" }} // Remove skew if isScrolled
             >
             <motion.img
                 src="/images/logo.png"
                 alt="Green Agriculture Corp Logo"
                 className={cn(
-                " h-25 w-auto object-contain bottom-0 pb-4 transition-all duration-100",
+                " h-25 w-auto object-contain bottom-0 transition-all duration-100 pb-6 pt-2",
                 isScrolled ? "-mb-1 relative" : "mb-0 absolute"
                 )}
-                style={{ transform: isScrolled ? "none" : "skewY(5deg)" }} // Remove reverse skew if isScrolled
+                style={{ transform: isScrolled ? "none" : "skewY(6deg)" }} // Remove reverse skew if isScrolled
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 0.3, duration: 0.5 }}
