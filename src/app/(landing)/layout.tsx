@@ -8,7 +8,7 @@ export default function LayoutLanding({ children }: { children: React.ReactNode 
   return (
     <>
       <Navbar />
-      <div className="p-14" />
+      {/* <div className="p-14" /> */}
       <main>
         <AnalyticsProvider>
           {children}
