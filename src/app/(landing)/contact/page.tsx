@@ -6,11 +6,15 @@ import { SectionTitle, Subtitle, BodyText, CardTitle } from '@/components/ui/Typ
 import { Badge } from '@/components/ui/badge';
 import { SubmitContactForm } from './action';
 import { toast } from 'sonner';
+import { Loader2 } from 'lucide-react';
 
 export default function ContactPage() {
   return (<>
     <ContactUsHeroSection />
     <ContactUsMethodsSection />
+    {/* 
+      // todo:: react-recaptcha v3 integration
+    */}
     <ContactFormAndOfficesSection />
   </>)
 }
@@ -155,7 +159,7 @@ function ContactUsHeroSection() {
   </>)
 }
 function ContactFormAndOfficesSection() {
-  const [state, action] = useActionState(SubmitContactForm, null)
+  const [state, action, pending] = useActionState(SubmitContactForm, null)
   useEffect(() => {
     if (state?.success) {
       toast.success(
@@ -242,9 +246,14 @@ function ContactFormAndOfficesSection() {
 
               <button
                 type="submit"
+                disabled={pending}
                 className="w-full bg-amber-500 hover:bg-amber-600 text-white font-bold py-4 rounded-xl transition-all duration-300 transform hover:scale-105 flex items-center justify-center space-x-2 shadow-xl"
               >
-                <span>Send Inquiry</span>
+                {
+                  pending ? <span>
+                    <Loader2 className="animate-spin mr-2" />
+                  </span> :
+                    <span>Send Inquiry</span>}
                 <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                 </svg>

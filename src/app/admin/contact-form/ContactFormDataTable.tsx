@@ -1,5 +1,7 @@
 "use client"
-
+/*
+todo::
+*/
 import * as React from "react"
 import { useState, useMemo } from "react"
 import { ColumnDef, flexRender, getCoreRowModel, getSortedRowModel, useReactTable, getFilteredRowModel, getPaginationRowModel } from "@tanstack/react-table"
@@ -15,10 +17,21 @@ import {
   TableRow,
 } from "@/components/ui/table"
 import { Input } from "@/components/ui/input"
+import {
+  Dialog,
+  DialogTrigger,
+  DialogContent,
+  DialogHeader,
+  DialogFooter,
+  DialogTitle,
+  DialogDescription,
+  DialogClose,
+} from "@/components/ui/dialog"
+import { Eye, Trash } from "lucide-react"
+import { cn } from "@/lib/utils"
 
 
 import type { ContactFormSubmission } from "../../../../prisma/generated/prisma"
-import { Trash } from "lucide-react"
 
 type Props = {
   data: ContactFormSubmission[]
@@ -48,11 +61,17 @@ export default function ContactFormDataTable({ data, onDelete }: Props) {
       {
         accessorKey: "message",
         header: "Message",
-        cell: info => (
-          <div className="max-w-[28rem] truncate" title={String(info.getValue())}>
-            {String(info.getValue())}
-          </div>
-        ),
+        cell: info => {
+          const v = String(info.getValue() ?? "")
+          const truncated = v.length > 20 ? v.slice(0, 20) + "..." : v
+          return (
+            <div className="max-w-[28rem]">
+              <div className="truncate" title={v}>
+                {truncated}
+              </div>
+            </div>
+          )
+        },
       },
       {
         accessorKey: "createdAt",
@@ -70,22 +89,70 @@ export default function ContactFormDataTable({ data, onDelete }: Props) {
       {
         id: "actions",
         header: "",
-        cell: ({ row }) => (
-          <div className="flex gap-2">
-            <Button
-              size="sm"
-              variant="ghost"
-              onClick={() => {
-                const id = row.original.id
-                if (!onDelete) return
-                void onDelete(id)
-              }}
-              
-            >
-              <Trash className="h-4 w-4 text-red-600" />
-            </Button>
-          </div>
-        ),
+        cell: ({ row }) => {
+          const message = String(row.original.message ?? "")
+          const [openView, setOpenView] = React.useState(false)
+          const [openConfirm, setOpenConfirm] = React.useState(false)
+
+          return (
+            <div className="flex gap-2">
+              {/* View full message */}
+              <Button size="sm" variant="ghost" onClick={() => setOpenView(true)}>
+                <Eye className="h-4 w-4" />
+              </Button>
+
+              {/* Delete with confirmation dialog */}
+              <Dialog open={openConfirm} onOpenChange={setOpenConfirm}>
+                <DialogTrigger asChild>
+                  <Button size="sm" variant="ghost">
+                    <Trash className="h-4 w-4 text-red-600" />
+                  </Button>
+                </DialogTrigger>
+                <DialogContent>
+                  <DialogHeader>
+                    <DialogTitle>Delete submission?</DialogTitle>
+                    <DialogDescription>
+                      Are you sure you want to delete the submission from <span className="font-medium">{row.original.name}</span>? This action cannot be undone.
+                    </DialogDescription>
+                  </DialogHeader>
+                  <DialogFooter>
+                    <DialogClose asChild>
+                      <Button variant="outline">Cancel</Button>
+                    </DialogClose>
+                    <Button
+                      variant="destructive"
+                      onClick={async () => {
+                        const id = row.original.id
+                        setOpenConfirm(false)
+                        if (!onDelete) return
+                        await onDelete(id)
+                      }}
+                    >
+                      Delete
+                    </Button>
+                  </DialogFooter>
+                </DialogContent>
+              </Dialog>
+
+              {/* View message dialog (separate) */}
+              <Dialog open={openView} onOpenChange={setOpenView}>
+                <DialogContent>
+                  <DialogHeader>
+                    <DialogTitle>Message from {row.original.name}</DialogTitle>
+                    <DialogDescription className="whitespace-pre-wrap">
+                      {message}
+                    </DialogDescription>
+                  </DialogHeader>
+                  <DialogFooter>
+                    <DialogClose asChild>
+                      <Button>Close</Button>
+                    </DialogClose>
+                  </DialogFooter>
+                </DialogContent>
+              </Dialog>
+            </div>
+          )
+        },
       },
     ],
     [onDelete]
