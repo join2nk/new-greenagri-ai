@@ -14,7 +14,19 @@ datasource db {
 
 
 
+// contact us form submissions
+model ContactFormSubmission {
+  id          String   @id @default(uuid())
+  name        String
+  email       String
+  subject     String?
+  message     String
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
 
+  @@index([email])
+  @@index([createdAt])
+}
 
 
 
