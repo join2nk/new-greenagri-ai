@@ -1,6 +1,7 @@
 "use server";
 
 import { db } from "@/db/prisma";
+import { redirect } from "next/navigation";
 import { z } from "zod";
 
 export async function createContactMessage(data: FormData) {
@@ -11,7 +12,7 @@ export async function createContactMessage(data: FormData) {
   const message = data.get("message") as string | null;
 
   if (!name || !email || !companyName || !productType) {
-    throw new Response("All fields except message are required", { status: 400 });
+    return { success: false, error: "All fields except message are required" };
   }
 
   const schema = z.object({
@@ -23,8 +24,9 @@ export async function createContactMessage(data: FormData) {
   });
 
   const parsed = schema.safeParse({ name, email, companyName, productType, message });
+
   if (!parsed.success) {
-    throw new Response("Validation failed", { status: 400 });
+    return { success: false, error: parsed.error.issues.map((e) => e.message).join(", ") };
   }
 
   await db.contactForm.create({
@@ -37,5 +39,28 @@ export async function createContactMessage(data: FormData) {
     },
   });
 
-  return; // server action must return void
+  return { success: true };
+}
+
+
+// DELETE action
+
+export async function deleteContactMessage(formData: FormData) {
+  const idStr = formData.get("id") as string | null;
+
+  if (!idStr) {
+    throw new Response("ID is required", { status: 400 });
+  }
+
+  // Convert string to number
+  const id = Number(idStr);
+  if (isNaN(id)) {
+    throw new Response("Invalid ID", { status: 400 });
+  }
+
+  await db.contactForm.delete({
+    where: { id }, // now 'id' is a number as expected
+  });
+
+    return redirect("/admin/contact-form");// server action must return void
 }

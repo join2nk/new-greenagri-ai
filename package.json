@@ -9,7 +9,6 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@prisma/client": "6.13.0",
     "@radix-ui/react-alert-dialog": "^1.1.14",
     "@radix-ui/react-avatar": "^1.1.10",
     "@radix-ui/react-collapsible": "^1.1.12",
@@ -29,7 +28,6 @@
     "motion": "^12.23.12",
     "next": "15.4.1",
     "next-themes": "^0.4.6",
-    "prisma": "^6.14.0",
     "react": "19.1.0",
     "react-dom": "19.1.0",
     "recharts": "^3.1.2",
@@ -37,11 +35,7 @@
     "swiper": "^11.2.10",
     "tailwind-merge": "^3.3.1",
     "ua-parser-js": "^2.0.4",
-<<<<<<< HEAD
-    "zod": "^4.0.14"
-=======
     "zod": "^4.1.8"
->>>>>>> 3451152f7760c9a4728913d201435d8f5b107597
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4.1.12",
