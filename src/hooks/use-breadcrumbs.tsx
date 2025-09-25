@@ -33,14 +33,7 @@ const breadcrumbConfig: Record<string, BreadcrumbConfig> = {
         label: "Contact Forms",
         component: <span className="text-no-purple-600">📧 Contact Forms</span>,
       },
-      // "news-letter-list": {
-      //   label: "Newsletter List",
-      //   component: <span className="text-no-orange-600">📰 Newsletter</span>,
-      // },
-      // apply: {
-      //   label: "Job Applications",
-      //   component: <span className="text-no-red-600">👔 Applications</span>,
-      // },
+    
       quote: {
         label: "Quote Requests",
         component: <span className="text-no-indigo-600">💰 Quotes</span>,
@@ -53,64 +46,7 @@ const breadcrumbConfig: Record<string, BreadcrumbConfig> = {
       },
     },
   },
-  service: {
-    label: "Services",
-    component: <span className="text-no-blue-500">⚙️ Services</span>,
-    children: {
-      "website-development": {
-        label: "Website Development",
-        component: <span className="text-no-cyan-600">🌐 Web Development</span>,
-      },
-      "mobile-development": {
-        label: "Mobile Development",
-        component: <span className="text-no-teal-600">📱 Mobile Development</span>,
-      },
-      ecommerce: {
-        label: "E-commerce",
-        component: <span className="text-no-emerald-600">🛒 E-commerce</span>,
-      },
-      seoptimize: {
-        label: "SEO Optimization",
-        component: <span className="text-no-yellow-600">🔍 SEO</span>,
-      },
-      package: {
-        label: "Service Packages",
-        component: <span className="text-no-pink-600">📦 Packages</span>,
-      },
-    },
-  },
-  "about-us": {
-    label: "About Us",
-    component: <span className="text-no-gray-600">👥 About Us</span>,
-  },
-  career: {
-    label: "Career",
-    component: <span className="text-no-violet-600">💼 Career</span>,
-  },
-  "contact-us": {
-    label: "Contact Us",
-    component: <span className="text-no-rose-600">📞 Contact</span>,
-  },
-  privacy: {
-    label: "Privacy Policy",
-    component: <span className="text-no-slate-600">🔒 Privacy</span>,
-  },
-  project: {
-    label: "Projects",
-    component: <span className="text-no-amber-600">🚀 Projects</span>,
-  },
-  "services-details": {
-    label: "Service Details",
-    component: <span className="text-no-lime-600">📋 Service Details</span>,
-  },
-  tmcd: {
-    label: "TMCD",
-    component: <span className="text-no-cyan-600">🎯 TMCD</span>,
-  },
-  login: {
-    label: "Login",
-    component: <span className="text-no-gray-500">🔐 Login</span>,
-  },
+ 
 };
 
 function buildBreadcrumbs(

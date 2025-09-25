@@ -4,6 +4,10 @@ import React from 'react';
 import { Section } from '@/components/ui/Section';
 import { SectionTitle, Subtitle, BodyText, CardTitle } from '@/components/ui/Typography';
 import { Badge } from '@/components/ui/Badge';
+import { createContactMessage } from "@/app/admin/contact/action"; // path to your server action
+import { FormComponent } from '@/app/admin/contact/page';
+
+
 
 const contactMethods = [
   {
@@ -149,67 +153,7 @@ export default function ContactPage() {
               Send Your Inquiry
             </CardTitle>
             
-            <form className="space-y-6">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div>
-                  <label className="block text-sm font-medium mb-3 text-white">Full Name</label>
-                  <input
-                    type="text"
-                    className="w-full px-4 py-4 bg-white/10 backdrop-blur-sm rounded-xl border border-white/20 focus:outline-none focus:ring-2 focus:ring-amber-400 focus:border-transparent transition-all placeholder-gray-300 text-white"
-                    placeholder="Your Name"
-                  />
-                </div>
-                <div>
-                  <label className="block text-sm font-medium mb-3 text-white">Email Address</label>
-                  <input
-                    type="email"
-                    className="w-full px-4 py-4 bg-white/10 backdrop-blur-sm rounded-xl border border-white/20 focus:outline-none focus:ring-2 focus:ring-amber-400 focus:border-transparent transition-all placeholder-gray-300 text-white"
-                    placeholder="your@email.com"
-                    required
-                  />
-                </div>
-              </div>
-              
-              <div>
-                <label className="block text-sm font-medium mb-3 text-white">Company Name</label>
-                <input
-                  type="text"
-                  className="w-full px-4 py-4 bg-white/10 backdrop-blur-sm rounded-xl border border-white/20 focus:outline-none focus:ring-2 focus:ring-amber-400 focus:border-transparent transition-all placeholder-gray-300 text-white"
-                  placeholder="Your Company"
-                />
-              </div>
-              
-              <div>
-                <label className="block text-sm font-medium mb-3 text-white">Product Interest</label>
-                <select className="w-full px-4 py-4 bg-white/10 backdrop-blur-sm rounded-xl border border-white/20 focus:outline-none focus:ring-2 focus:ring-amber-400 focus:border-transparent transition-all text-white">
-                  <option value="">Select Product Type</option>
-                  <option value="non-basmati">Non-Basmati Rice</option>
-                  <option value="basmati">Basmati Rice</option>
-                  <option value="private-label">Private Labelling</option>
-                  <option value="wholesale">Wholesale Distribution</option>
-                  <option value="export">Export Services</option>
-                </select>
-              </div>
-              
-              <div>
-                <label className="block text-sm font-medium mb-3 text-white">Message</label>
-                <textarea
-                  rows={5}
-                  className="w-full px-4 py-4 bg-white/10 backdrop-blur-sm rounded-xl border border-white/20 focus:outline-none focus:ring-2 focus:ring-amber-400 focus:border-transparent transition-all placeholder-gray-300 text-white resize-none"
-                  placeholder="Tell us about your requirements..."
-                ></textarea>
-              </div>
-              
-              <button
-                type="submit"
-                className="w-full bg-amber-500 hover:bg-amber-600 text-white font-bold py-4 rounded-xl transition-all duration-300 transform hover:scale-105 flex items-center justify-center space-x-2 shadow-xl"
-              >
-                <span>Send Inquiry</span>
-                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                </svg>
-              </button>
-            </form>
+            <FormComponent />
           </div>
 
           {/* Office Locations */}

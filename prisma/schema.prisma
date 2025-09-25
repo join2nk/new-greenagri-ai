@@ -161,3 +161,23 @@ model DailyAnalytics {
   
   @@index([date])
 }
+
+// Quote form details
+model quoteformdetails {
+  id         Int      @id @default(autoincrement())
+  name       String
+  email      String   @unique
+  message    String?
+  phone      String?
+  created_at DateTime @default(now())
+}
+
+model ContactForm{
+  id          Int      @id @default(autoincrement())
+  name        String
+  email       String
+  companyName String
+  productType String
+  message     String?
+  createdAt   DateTime @default(now())
+}
