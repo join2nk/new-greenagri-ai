@@ -33,7 +33,7 @@ export default function Navbar() {
         "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
         isScrolled
           ? "bg-white backdrop-blur-lg  shadow-lg"
-          : "bg-white/90 backdrop-blur-sm"
+          : "bg-white/10 "
       )}
     >
       <div
@@ -72,7 +72,7 @@ export default function Navbar() {
               <Link
                 key={item.name}
                 href={item.href}
-                className="px-4 py-2 text-gray-700 hover:text-amber-300 font-medium transition-colors duration-300 rounded-lg hover:bg-green-600/95"
+                className={cn("px-4 py-2 hover:text-amber-300 font-medium transition-colors duration-300 rounded-lg hover:bg-green-600/95",isScrolled ? "text-gray-700" : "text-gray-200")}
               >
                 {item.name}
               </Link>

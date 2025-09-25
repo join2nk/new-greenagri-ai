@@ -62,6 +62,7 @@ export default function Hero() {
           <SwiperSlide key={slide.id}>
             <div className="relative h-full w-full">
               {/* Background Image */}
+              <div className="p-10"></div>
               <div 
                 className="absolute inset-0 bg-cover bg-center bg-no-repeat"
                 style={{ backgroundImage: `url(${slide.image})` }}

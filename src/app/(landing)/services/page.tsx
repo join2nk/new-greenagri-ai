@@ -3,7 +3,8 @@
 import React from 'react';
 import { Section } from '@/components/ui/Section';
 import { SectionTitle, Subtitle, BodyText, CardTitle } from '@/components/ui/Typography';
-import { Badge } from '@/components/ui/Badge';
+import { Badge } from '@/components/ui/badge';
+// import { HeroSection } from '@/components/HeroSection';
 
 const services = [
   {
@@ -54,7 +55,8 @@ export default function ServicesPage() {
   return (
     <div className="min-h-screen bg-white">
       {/* Hero Section */}
-      <div className="relative h-[70vh] overflow-hidden">
+      {/* <HeroSection /> */}
+      <div className="relative overflow-hidden py-12">
         <div 
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
           style={{ 
@@ -66,12 +68,13 @@ export default function ServicesPage() {
         <div className="relative z-10 h-full flex items-center">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <div className="max-w-4xl">
-              <div className="inline-flex items-center bg-white/10 backdrop-blur-sm border border-white/20 rounded-full px-6 py-3 mb-6">
+              <div className="p-14"></div>
+              {/* <div className="inline-flex items-center bg-white/10 backdrop-blur-sm border border-white/20 rounded-full px-6 py-3 mb-6">
                 <span className="w-3 h-3 bg-amber-400 rounded-full mr-3 animate-pulse"></span>
                 <span className="text-white text-sm font-semibold tracking-wide">
                   OUR SERVICES
                 </span>
-              </div>
+              </div> */}
               
               <h1 className="text-5xl md:text-6xl font-bold text-white mb-6 leading-tight">
                 Comprehensive 

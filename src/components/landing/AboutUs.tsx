@@ -2,9 +2,9 @@
 
 import React from 'react';
 import { Section } from '../ui/Section';
-import { SectionTitle, BodyText, CardTitle } from '../ui/Typography';
+import { SectionTitle, BodyText, CardTitle } from '@/components/ui/Typography';
 
-import { Badge } from '../ui/Badge';
+import { Badge } from '@/components/ui/badge';
 
 
 const companyStats = [
@@ -68,8 +68,8 @@ export default function AboutUs() {
 
           <div className="flex flex-wrap justify-center gap-3 mb-8">
             <Badge variant="secondary">Rice Manufacturer</Badge>
-            <Badge variant="success">Global Exporter</Badge>
-            <Badge variant="primary">ISO Certified</Badge>
+            <Badge variant="default">Global Exporter</Badge>
+            <Badge variant="outline">ISO Certified</Badge>
             <Badge variant="outline">B2B Supplier</Badge>
           </div>
         </div>

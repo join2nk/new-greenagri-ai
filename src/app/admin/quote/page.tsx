@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 "use server";
 import React from "react";
 import {db} from "@/db/prisma";
@@ -79,4 +80,12 @@ export default async function QuoteFormEntriesPage() {
       </TableBody>
     </Table>
   );
+=======
+import React from 'react'
+
+export default function QuotesAdminPage() {
+  return (
+    <div>QuotesAdminPage</div>
+  )
+>>>>>>> 3451152f7760c9a4728913d201435d8f5b107597
 }

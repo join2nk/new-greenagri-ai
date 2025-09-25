@@ -36,7 +36,7 @@ const products = [
   
 ];
 import { CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { Button } from "@/components/ui/Button";
+import { Button } from "@/components/ui/button";
 export function Products() {
   return (
     <div className="space-y-8 py-2">
