@@ -18,6 +18,7 @@ export function FormComponent() {
       const res = await createContactMessage(formData);
       if (res.success) {
         setSuccess(true);
+   
         e.currentTarget.reset(); // Clear the form
       } else {
         alert(res.error);
