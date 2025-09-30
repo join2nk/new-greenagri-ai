@@ -147,7 +147,7 @@ export function AnalyticsDashboard({ className }: { className?: string }) {
             <p className="text-xs text-muted-foreground">Unique visitors</p>
           </CardContent>
         </Card>
-        
+{/*         
         <Card>
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
             <CardTitle className="text-sm font-medium">Avg. Session</CardTitle>
@@ -157,9 +157,9 @@ export function AnalyticsDashboard({ className }: { className?: string }) {
             <div className="text-2xl font-bold">{formatDuration(data.overview.avgSessionDuration)}</div>
             <p className="text-xs text-muted-foreground">Average duration</p>
           </CardContent>
-        </Card>
+        </Card> */}
         
-        <Card>
+        {/* <Card>
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
             <CardTitle className="text-sm font-medium">Bounce Rate</CardTitle>
             <TrendingUp className="h-4 w-4 text-muted-foreground" />
@@ -168,7 +168,7 @@ export function AnalyticsDashboard({ className }: { className?: string }) {
             <div className="text-2xl font-bold">{data.overview.bounceRate}%</div>
             <p className="text-xs text-muted-foreground">Single-page sessions</p>
           </CardContent>
-        </Card>
+        </Card> */}
         
         <Card>
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
