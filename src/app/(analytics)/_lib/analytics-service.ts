@@ -328,33 +328,34 @@ export class AnalyticsService {
     }
   }
 
-  // Get daily statistics
+  // Get daily statistics. 
+  // todo:  fix this logic to get  Traffic trends 
   private static async getDailyStats(days: number) {
     const startDate = new Date();
     startDate.setDate(startDate.getDate() - days);
 
-    const result = await db.$queryRaw`
-      SELECT 
-        DATE(timestamp) as date,
-        COUNT(*) as pageViews,
-        COUNT(DISTINCT visitorId) as uniqueVisitors
-      FROM PageView 
-      WHERE timestamp >= ${startDate.toISOString()}
-      GROUP BY DATE(timestamp)
-      ORDER BY date DESC
-    ` as any[];
-    //   const result = await db.pageView.groupBy({
-    //   by: ['timestamp'],
-    //   _count: { _all: true },
-    //   _countDistinct: { visitorId: true },
-    //   where: {
-    //   timestamp: { gte: startDate },
-    //   },
-    //   orderBy: {
-    //   timestamp: 'desc',
-    //   },
-    // });
-
+    // const result = await db.$queryRaw`
+    //   SELECT 
+    //     DATE(timestamp) as date,
+    //     COUNT(*) as pageViews,
+    //     COUNT(DISTINCT visitorId) as uniqueVisitors
+    //   FROM PageView 
+    //   WHERE timestamp >= ${startDate.toISOString()}
+    //   GROUP BY DATE(timestamp)
+    //   ORDER BY date DESC
+    // ` as any[];
+      const result = await db.pageView.groupBy({
+      by: 'timestamp',
+      _count: { _all: true },
+      where: {
+        timestamp: { gte: startDate },
+      },
+      orderBy: {
+      timestamp: 'desc',
+      },
+      
+    });
+    console.log(result)
     return result.map(row => ({
       date: row.date,
       pageViews: Number(row.pageViews),
