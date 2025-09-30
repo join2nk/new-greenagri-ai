@@ -21,7 +21,7 @@ export async function deleteMessage(data: FormData) {
   await db.quoteformdetails.delete({
     where: { id: id.data },
   });
-
+                                   
   return redirect("/admin/quote");
 }
 

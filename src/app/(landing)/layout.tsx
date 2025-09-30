@@ -15,8 +15,8 @@ export default function LayoutLanding({ children }: { children: React.ReactNode 
           <AnalyticsTracker />
         </AnalyticsProvider>
       </main>
-    <FooterOld />
-    <Toaster />
+      <FooterOld />
+      <Toaster  position='top-left' />
       {/* <Footer /> */}
     </>
   )

@@ -4,7 +4,7 @@ import { db } from "@/db/prisma";
 import { redirect } from "next/navigation";
 import { z } from "zod";
 
-export async function createContactMessage(data: FormData) {
+export async function createContactMessage(initialData:unknown,data: FormData) {
   const name = data.get("name") as string | null;
   const email = data.get("email") as string | null;
   const companyName = data.get("companyName") as string | null;

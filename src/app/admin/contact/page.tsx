@@ -1,38 +1,19 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useActionState, useEffect } from "react";
 import { createContactMessage } from "@/app/admin/contact/action";
+import { toast } from "sonner";
 
 export function FormComponent() {
-  const [success, setSuccess] = useState(false);
-  const [loading, setLoading] = useState(false);
-
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    setLoading(true);
-    setSuccess(false);
-
-    const formData = new FormData(e.currentTarget);
-
-    try {
-      const res = await createContactMessage(formData);
-      if (res.success) {
-        setSuccess(true);
-   
-        e.currentTarget.reset(); // Clear the form
-      } else {
-        alert(res.error);
-      }
-    } catch (err) {
-      console.error(err);
-      alert("Failed to send message. Please try again.");
-    } finally {
-      setLoading(false);
-    }
-  };
-
+  
+  const [state,action,pending] = useActionState(createContactMessage,null)
+  useEffect(()=>{
+    toast("Event has been created.")
+  },[state])
   return (
-    <form onSubmit={handleSubmit} className="space-y-6">
+    <form 
+    action={action} 
+    className="space-y-6">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div>
             <label className="block text-sm font-medium mb-3 text-white">Full Name</label>
@@ -95,16 +76,16 @@ export function FormComponent() {
 
       <button
         type="submit"
-        disabled={loading}
+        disabled={pending}
         className="w-full bg-amber-500 hover:bg-amber-600 text-white font-bold py-4 rounded-xl transition-all duration-300 transform hover:scale-105 flex items-center justify-center space-x-2 shadow-xl"
       >
-        <span>{loading ? "Sending..." : "Send Inquiry"}</span>
+        <span>{pending ? "Sending..." : "Send Inquiry"}</span>
         <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
         </svg>
       </button>
 
-      {success && (
+      {state?.success && (
         <p className="text-green-400 mt-3 font-semibold">
           Message sent successfully! We will contact you soon.
         </p>
