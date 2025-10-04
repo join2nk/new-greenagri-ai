@@ -58,8 +58,8 @@ export default function Contact() {
              reliability, and long-term business relationships.
            </BodyText>
            
-           <div className="space-y-4">
-             {/* <QuoteDialog /> */}
+           {/* <div className="space-y-4">
+           
              <Link href="/contact" className="w-full lg:w-auto min-w-[200px]">
                <Button variant="secondary" size="lg" className="w-full lg:w-auto">
                Request Quote
@@ -72,11 +72,11 @@ export default function Contact() {
                  </Button>
                </Link>
              </div>
-           </div>
+           </div> */}
            
            <div className="mt-8 pt-8 border-t border-gray-700">
              <div className="text-sm text-gray-300">
-               <div>Export Inquiry: export@greenagricorp.com</div>
+               <div>Export Inquiry: greenagricorp@gmail.com</div>
                <div>Business Development: +91-XXX-XXXX-XXX</div>
              </div>
            </div>

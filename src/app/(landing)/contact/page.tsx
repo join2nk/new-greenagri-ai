@@ -151,7 +151,7 @@ function ContactUsMethodsSection() {
 }
 
 function ContactFormAndOfficesSection() {
-  ;
+  
 
   return (
     <Section background="gradient" padding="xl">

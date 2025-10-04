@@ -106,7 +106,7 @@ export default function Footer() {
                 <div className="w-10 h-10 bg-gradient-to-br from-amber-500/40 to-yellow-500/30 rounded-lg flex items-center justify-center group-hover:from-amber-400/50 group-hover:to-yellow-400/40 transition-all duration-300 border border-amber-500/40 backdrop-blur-sm">
                   <span className="text-amber-300 text-lg">📧</span>
                 </div>
-                <span className="text-emerald-100 group-hover:text-amber-200 transition-colors duration-300">info@greenagricorp.com</span>
+                <span className="text-emerald-100 group-hover:text-amber-200 transition-colors duration-300">greenagricorp@gmail.com</span>
               </div>
               <div className="flex items-center space-x-3 group">
                 <div className="w-10 h-10 bg-gradient-to-br from-amber-500/40 to-yellow-500/30 rounded-lg flex items-center justify-center group-hover:from-amber-400/50 group-hover:to-yellow-400/40 transition-all duration-300 border border-amber-500/40 backdrop-blur-sm">

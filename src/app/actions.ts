@@ -60,9 +60,8 @@ export async function getUser() {
   if (!encryptedSessionValue) {
     return null;
   }
-    const sessionUser = await decrypt(encryptedSessionValue.value) as { userId: string| undefined } | undefined
+  const sessionUser = await decrypt(encryptedSessionValue.value) as { userId: string| undefined } | undefined
 
-    console.log(sessionUser);
   const user = users.find((user) => user.sessionId === sessionUser?.userId);
   if (!user) {
     return null;
@@ -92,7 +91,7 @@ export async function login(username: string, password: string) {
       //   : {}),
     // }
     return redirect("/admin");
-    return user;
+   
   }
   return null;
 }

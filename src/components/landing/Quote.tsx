@@ -1,25 +1,39 @@
 "use client";
 
-import { useState } from "react";
+import { useActionState, useEffect, useState } from "react";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogFooter } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { createMessage } from "@/app/admin/quote/action"; // server action
+import { toast } from "sonner";
+import { Dock, QuoteIcon, Signature } from "lucide-react";
 
 export default function QuoteDialog() {
   const [open, setOpen] = useState(false);
   const [submitted, setSubmitted] = useState(false); // <-- new state
 
-  const handleSubmit = async (formData: FormData) => {
-    try {
-      await createMessage(formData); // call server action
-      setSubmitted(true); // show thank-you
-    } catch (error) {
-      console.error(error);
-      alert("Something went wrong. Please try again.");
-    }
-  };
+  // const handleSubmit = async (formData: FormData) => {
+  //   try {
+  //     await createMessage(formData); // call server action
+  //     setSubmitted(true); // show thank-you
+  //   } catch (error) {
+  //     console.error(error);
+  //     alert("Something went wrong. Please try again.");
+  //   }
+  // };
+
+const [state, action] = useActionState(createMessage, null);
+
+useEffect(() => {
+  if (state?.success) {
+    toast("Thank you! Your quote request has been submitted.");
+    setOpen(false)
+  } else if (!(state?.success)){
+    toast.success(state?.error)
+  }
+
+}, [state]);
 
   return (
     <>
@@ -31,9 +45,11 @@ export default function QuoteDialog() {
       </Button>
 
       <Dialog open={open} onOpenChange={(val) => { setOpen(val); if (!val) setSubmitted(false); }}>
-        <DialogContent className="sm:max-w-[425px]">
+        <DialogContent className="w-full max-w-lg">
           <DialogHeader>
-            <DialogTitle>Request a Quote</DialogTitle>
+            <DialogTitle>
+                <Signature  />
+              Request a Quote</DialogTitle>
           </DialogHeader>
 
           {submitted ? (
@@ -42,22 +58,22 @@ export default function QuoteDialog() {
             </div>
           ) : (
             <form 
-              action={handleSubmit} // call client wrapper
+              action={action} // call client wrapper
               className="space-y-4 mt-2"
             >
-              <div>
+              <div className="grid gap-2">
                 <Label htmlFor="name">Name</Label>
                 <Input id="name" name="name" placeholder="Your name" required />
               </div>
-              <div>
+              <div className="grid gap-2">
                 <Label htmlFor="email">Email</Label>
                 <Input id="email" type="email" name="email" placeholder="you@example.com" required />
               </div>
-              <div>
+              <div className="grid gap-2">
                 <Label htmlFor="phone">Phone</Label>
                 <Input id="phone" type="tel" name="phone" placeholder="Enter your phone number" required />
               </div>
-              <div>
+              <div className="grid gap-2">
                 <Label htmlFor="message">Message</Label>
                 <textarea
                   id="message"

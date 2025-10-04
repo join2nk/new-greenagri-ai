@@ -28,7 +28,7 @@ export async function deleteMessage(data: FormData) {
 // Create action (to store data)
 
 
-export async function createMessage(data: FormData) {
+export async function createMessage(initialdata:unknown ,data: FormData) {
   const name = data.get("name") as string | null;
   const email = data.get("email") as string | null;
   const message = data.get("message") as string | null;
@@ -50,6 +50,7 @@ export async function createMessage(data: FormData) {
   if (!parsed.success) {
     throw new Response("Validation failed", { status: 400 });
   }
+try{
 
   await db.quoteformdetails.create({
     data: {
@@ -58,9 +59,13 @@ export async function createMessage(data: FormData) {
       message: parsed.data.message ?? null,
       phone: parsed.data.phone ?? null, // <-- store phone
     },
-  });
-
-  return; // server actions must return void
+  })
+} catch  {
+    return {sucess:false, 
+      error: "you may have already registerd"
+    }
+  }
+  return {success:true}; // server actions must return void
 }
 
  // or wherever you want after form submit

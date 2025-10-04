@@ -92,7 +92,7 @@ export default function Hero() {
                       </p>
                       
                       {/* CTA Buttons */}
-                      <div className="flex flex-col sm:flex-row gap-4 pt-6">
+                      {/* <div className="flex flex-col sm:flex-row gap-4 pt-6">
                         <Link
                           href="/contact"
                           className="inline-flex items-center justify-center px-8 py-4 bg-gradient-to-r from-green-500 to-emerald-600 text-white font-semibold rounded-full hover:from-green-600 hover:to-emerald-700 transition-all duration-300 transform hover:scale-105 shadow-2xl"
@@ -109,7 +109,7 @@ export default function Hero() {
                         >
                           Learn More
                         </Link>
-                      </div>
+                      </div> */}
                     </div>
                   </div>
                 </div>

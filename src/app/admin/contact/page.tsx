@@ -8,7 +8,9 @@ export function FormComponent() {
   
   const [state,action,pending] = useActionState(createContactMessage,null)
   useEffect(()=>{
-    toast("Event has been created.")
+    if (state?.success){
+      toast("Thank You for contacting us. We will get in touch with you soon .")
+    }
   },[state])
   return (
     <form 
