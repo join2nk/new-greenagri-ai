@@ -10,6 +10,7 @@ import {
 } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+import { signIn } from "next-auth/react";
 
 export function LoginForm({
   className,
@@ -64,13 +65,11 @@ export function LoginForm({
               <Button
                 variant="outline"
                 className="w-full"
-                onClick={(e) => {
-                  e.preventDefault();
-                  alert("Google login not implemented yet");
-                }}
+                onClick={() => signIn("google", { callbackUrl: "/admin" })}
               >
                 Login with Google
               </Button>
+
             </div>
             <div className="mt-4 text-center text-sm">
               Don&apos;t have an account?{" "}

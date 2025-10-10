@@ -38,7 +38,7 @@ export default function Navbar() {
     >
       <div
         className={cn(
-          " bg-gradient-to-br from-emerald-900/95 via-green-800/90 to-teal-900/95 text-white text-sm py-2 transition-all duration-300 z-10",
+          "bg-gradient-to-br from-emerald-900/95 via-green-800/90 to-teal-900/95 text-white text-sm py-2 transition-all duration-300 z-10",
           isScrolled ? "block" : "block"
         )}
       >

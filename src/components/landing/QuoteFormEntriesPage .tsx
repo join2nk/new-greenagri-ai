@@ -103,7 +103,7 @@ export default function QuoteFormEntriesPage({ data }: { data: any[] }) {
                         <form action={deleteMessage}>
                           <input type="hidden" name="id" value={item.id} />
                           <AlertDialogAction type="submit">
-                            Yes, delete
+                            Yes,delete     
                           </AlertDialogAction>
                         </form>
                       </AlertDialogFooter>
