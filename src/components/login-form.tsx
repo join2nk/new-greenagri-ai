@@ -10,7 +10,7 @@ import {
 } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { signIn } from "next-auth/react";
+// import { signIn } from "next-auth/react";
 
 export function LoginForm({
   className,
@@ -65,7 +65,7 @@ export function LoginForm({
               <Button
                 variant="outline"
                 className="w-full"
-                onClick={() => signIn("google", { callbackUrl: "/admin" })}
+                // onClick={() => signIn("google", { callbackUrl: "/admin" })}
               >
                 Login with Google
               </Button>

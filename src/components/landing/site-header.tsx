@@ -18,7 +18,7 @@ import { useBreadcrumbs, BreadcrumbItem as BreadcrumbData } from "@/hooks/use-br
 export function SiteHeader() {
   const pathname = usePathname();
   const searchParams = useSearchParams();
-  const breadcrumbs = useBreadcrumbs(pathname, searchParams);
+  const breadcrumbs = useBreadcrumbs(pathname as string, searchParams);
 
   return (
     <header className="group-has-data-[collapsible=icon]/sidebar-wrapper:h-12 flex h-12 shrink-0 items-center gap-2 border-b transition-[width,height] ease-linear border mx-2 mt-2 rounded-lg bg-slate-50">

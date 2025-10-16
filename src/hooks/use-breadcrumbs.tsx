@@ -51,7 +51,7 @@ const breadcrumbConfig: Record<string, BreadcrumbConfig> = {
 
 function buildBreadcrumbs(
   pathSegments: string[],
-  searchParams: ReadonlyURLSearchParams,
+  searchParams: ReadonlyURLSearchParams | null,
   config: Record<string, BreadcrumbConfig>
 ): BreadcrumbItem[] {
   const breadcrumbs: BreadcrumbItem[] = [];
@@ -75,6 +75,9 @@ function buildBreadcrumbs(
       breadcrumbs.push(breadcrumbItem);
 
       // Handle search parameters for the current segment
+      if (!searchParams){
+        throw new Error("asdf")
+      }
       if (segmentConfig.searchParamHandlers && i === pathSegments.length - 1) {
         Object.entries(segmentConfig.searchParamHandlers).forEach(([param, handler]) => {
           const value = searchParams.get(param);
@@ -109,7 +112,7 @@ function buildBreadcrumbs(
 
 export function useBreadcrumbs(
   pathname: string,
-  searchParams: ReadonlyURLSearchParams
+  searchParams: ReadonlyURLSearchParams |null
 ): BreadcrumbItem[] {
   return useMemo(() => {
     // Remove leading slash and split path into segments
