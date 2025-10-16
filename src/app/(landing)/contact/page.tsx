@@ -3,8 +3,8 @@
 import React, { useActionState, useEffect } from "react";
 import { Section } from "@/components/ui/Section";
 import { SectionTitle, Subtitle, BodyText, CardTitle } from "@/components/ui/Typography";
-import { createContactMessage } from "@/app/admin/contact/action";
-import { FormComponent } from "@/app/admin/contact/page";
+import { createContactMessage } from "@/app/(landing)/contact/contact/action";
+import { FormComponent } from "@/app/(landing)/contact/contact/contact-form";
 import { Badge } from "@/components/ui/badge";
 import { toast } from "sonner";
 

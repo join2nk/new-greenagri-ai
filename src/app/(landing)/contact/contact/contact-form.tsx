@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useActionState, useEffect } from "react";
-import { createContactMessage } from "@/app/admin/contact/action";
+import { createContactMessage } from "@/app/(landing)/contact/contact/action";
 import { toast } from "sonner";
 
 export function FormComponent() {

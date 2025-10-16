@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState, useMemo } from "react";
-import { deleteContactMessage } from "@/app/admin/contact/action" // server action
+import { deleteContactMessage } from "@/app/(landing)/contact/contact/action" // server action
 
 import {
   Table,

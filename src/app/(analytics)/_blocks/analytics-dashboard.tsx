@@ -267,7 +267,8 @@ export function AnalyticsDashboard({ className }: { className?: string }) {
                       cx="50%"
                       cy="50%"
                       labelLine={false}
-                      label={({ device, percent }) => `${device} ${((percent ?? 0) * 100).toFixed(0)}%`}
+                      label={{}}
+                      // label={({ device, percent }:{device:number,percent:number}) => `${device} ${((percent) * 100).toFixed(0)}%`}
                       outerRadius={80}
                       fill="#8884d8"
                       dataKey="count"

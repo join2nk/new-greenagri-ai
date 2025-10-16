@@ -357,9 +357,9 @@ export class AnalyticsService {
     });
     console.log(result)
     return result.map(row => ({
-      date: row.date,
-      pageViews: Number(row.pageViews),
-      uniqueVisitors: Number(row.uniqueVisitors),
+      // date: row.date,
+      // pageViews: Number(row.pageViews),
+      // uniqueVisitors: Number(row.uniqueVisitors),
     }));
   }
 
