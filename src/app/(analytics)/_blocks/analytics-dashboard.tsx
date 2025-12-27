@@ -1,7 +1,7 @@
-"use client"
+'use client'
+
 import { useState, useEffect } from 'react'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
-
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
@@ -147,7 +147,7 @@ export function AnalyticsDashboard({ className }: { className?: string }) {
             <p className="text-xs text-muted-foreground">Unique visitors</p>
           </CardContent>
         </Card>
-{/*         
+        
         <Card>
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
             <CardTitle className="text-sm font-medium">Avg. Session</CardTitle>
@@ -157,9 +157,9 @@ export function AnalyticsDashboard({ className }: { className?: string }) {
             <div className="text-2xl font-bold">{formatDuration(data.overview.avgSessionDuration)}</div>
             <p className="text-xs text-muted-foreground">Average duration</p>
           </CardContent>
-        </Card> */}
+        </Card>
         
-        {/* <Card>
+        <Card>
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
             <CardTitle className="text-sm font-medium">Bounce Rate</CardTitle>
             <TrendingUp className="h-4 w-4 text-muted-foreground" />
@@ -168,7 +168,7 @@ export function AnalyticsDashboard({ className }: { className?: string }) {
             <div className="text-2xl font-bold">{data.overview.bounceRate}%</div>
             <p className="text-xs text-muted-foreground">Single-page sessions</p>
           </CardContent>
-        </Card> */}
+        </Card>
         
         <Card>
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
@@ -267,8 +267,8 @@ export function AnalyticsDashboard({ className }: { className?: string }) {
                       cx="50%"
                       cy="50%"
                       labelLine={false}
-                      label={{}}
-                      // label={({ device, percent }:{device:number,percent:number}) => `${device} ${((percent) * 100).toFixed(0)}%`}
+                      /* @ts-ignore */
+                      label={({ device, percent }) => `${device} ${(percent * 100).toFixed(0)}%`}
                       outerRadius={80}
                       fill="#8884d8"
                       dataKey="count"

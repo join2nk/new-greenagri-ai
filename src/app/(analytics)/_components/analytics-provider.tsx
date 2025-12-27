@@ -1,5 +1,6 @@
 'use client'
 
+import React from 'react'
 import { useAnalytics } from '@/app/(analytics)/_hooks/use-analytics'
 
 interface AnalyticsProviderProps {
@@ -72,5 +73,3 @@ export function AnalyticsTracker() {
 
   return null // This component doesn't render anything
 }
-
-import React from 'react'

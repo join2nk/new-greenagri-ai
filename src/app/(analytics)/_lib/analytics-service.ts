@@ -328,39 +328,48 @@ export class AnalyticsService {
     }
   }
 
-  // Get daily statistics. 
-  // todo:  fix this logic to get  Traffic trends 
+  // Get daily statistics
   private static async getDailyStats(days: number) {
     const startDate = new Date();
     startDate.setDate(startDate.getDate() - days);
 
-    // const result = await db.$queryRaw`
-    //   SELECT 
-    //     DATE(timestamp) as date,
-    //     COUNT(*) as pageViews,
-    //     COUNT(DISTINCT visitorId) as uniqueVisitors
-    //   FROM PageView 
-    //   WHERE timestamp >= ${startDate.toISOString()}
-    //   GROUP BY DATE(timestamp)
-    //   ORDER BY date DESC
-    // ` as any[];
-      const result = await db.pageView.groupBy({
-      by: 'timestamp',
-      _count: { _all: true },
+    // Get all page views in the date range
+    const pageViews = await db.pageView.findMany({
       where: {
         timestamp: { gte: startDate },
       },
-      orderBy: {
-      timestamp: 'desc',
+      select: {
+        timestamp: true,
+        visitorId: true,
       },
-      
+      orderBy: {
+        timestamp: 'desc',
+      },
     });
-    console.log(result)
-    return result.map(row => ({
-      // date: row.date,
-      // pageViews: Number(row.pageViews),
-      // uniqueVisitors: Number(row.uniqueVisitors),
-    }));
+
+    // Group by date manually
+    const dailyMap = new Map<string, { pageViews: number; visitors: Set<string> }>();
+
+    pageViews.forEach(pv => {
+      const dateKey = pv.timestamp.toISOString().split('T')[0];
+      if (!dailyMap.has(dateKey)) {
+        dailyMap.set(dateKey, { pageViews: 0, visitors: new Set() });
+      }
+      const day = dailyMap.get(dateKey)!;
+      day.pageViews++;
+      day.visitors.add(pv.visitorId);
+    });
+
+    // Convert to array and sort by date
+    const result = Array.from(dailyMap.entries())
+      .map(([date, stats]) => ({
+        date,
+        pageViews: stats.pageViews,
+        uniqueVisitors: stats.visitors.size,
+      }))
+      .sort((a, b) => b.date.localeCompare(a.date));
+
+    return result;
   }
 
 

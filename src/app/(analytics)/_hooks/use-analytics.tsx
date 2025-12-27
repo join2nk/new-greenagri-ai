@@ -22,7 +22,7 @@ export function useAnalytics() {
 
       try {
         const result = await clientAnalytics.trackPageView({
-          path: pathname as string,
+          path: pathname,
           title: document.title,
           referrer: document.referrer || undefined,
           loadTime,
@@ -103,7 +103,7 @@ export function useAnalytics() {
     clientAnalytics.trackEvent({
       eventType,
       eventName,
-      path: pathname as string,
+      path: pathname,
       value,
       metadata,
     })

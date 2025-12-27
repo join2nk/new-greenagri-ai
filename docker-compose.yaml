@@ -3,6 +3,8 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
+    env_file:
+      - .env
     container_name: green-company-landing-page
     ports:
       - "3026:3000"
