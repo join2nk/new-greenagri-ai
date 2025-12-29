@@ -2,7 +2,14 @@
 
 import React, { useState, useMemo } from "react";
 import { deleteContactMessage } from "@/app/(landing)/contact/contact/action" // server action
-
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog"
 import {
   Table,
   TableBody,
@@ -93,7 +100,33 @@ export default function ContactFormEntriesPage({ data }: { data: any[] }) {
                 >
                   {item.message ?? "-"}
                 </TableCell>
-                <TableCell className="text-right">
+                <TableCell className="text-right space-x-2">
+                  <Dialog>
+                    <DialogTrigger asChild>
+                      <Button
+                        size={"sm"}
+                        variant={"ghost"}
+                      >
+                        View
+                      </Button>
+                    </DialogTrigger>
+                    <DialogContent>
+                      <DialogHeader>
+                        <DialogTitle>Message from {item.name}</DialogTitle>
+                        {item.email && (
+                          <p className="text-sm text-gray-500 mb-2 bg-slate-100 rounded px-2">
+                            Email: {item.email}
+                          </p>
+                        )}
+                        <DialogDescription className="whitespace-pre-wrap prose ">
+                          <div className=" text-wrap max-h-[80vh] overflow-y-scroll min-h-[50vh]">
+
+                            {item.message}
+                          </div>
+                        </DialogDescription>
+                      </DialogHeader>
+                    </DialogContent>
+                  </Dialog>
                   <AlertDialog>
                     <AlertDialogTrigger className="text-red-500 hover:underline text-sm">
                       Delete
